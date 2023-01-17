@@ -9,7 +9,7 @@ const server: express.Application = express()
 
 server.use(express.json())
 server.use(morgan('dev'))
-server.use(cors({ origin: process.env.ALLOWED_ORIGIN }))
+server.use(cors())
 
 server.get('/', (req, res) => {
     res.status(200).send('server is up!')
