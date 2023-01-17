@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "../server/src/index.ts",
+      "use": "@now/node"
+    }
+  ]
+}
