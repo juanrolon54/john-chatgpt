@@ -5,7 +5,7 @@ export default () => {
         <div className='relative w-full h-[80vh] lg:h-full lg:col-start-2 lg:row-start-1 lg:row-end-3'>
             <Face />
             <Contact />
-            <div className='absolute top-16 lg:top-32 left-0 w-full h-full grid place-items-center -z-50'><br /><br /><span className='p-2 text-4xl border-2 border-black font-black bg-white text-black z-50 select-none'>Chat GPT</span></div>
+            <div className='absolute bottom-16 lg:bottom-32 left-0 w-full grid place-items-center -z-50'><br /><br /><span className='p-2 text-4xl border-2 border-black font-black bg-white text-black z-50 select-none'>Chat GPT</span></div>
             <Instructions />
         </div >
         <Img />
