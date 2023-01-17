@@ -17,7 +17,7 @@ server.get('/', (req, res) => {
 
 server.use('/', openai)
 
-server.listen(4000, () => {
+server.listen(process.env.PORT || 4000, () => {
     console.log('server is running!')
 })
 
