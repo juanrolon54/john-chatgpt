@@ -1,6 +1,6 @@
 export default () => {
     return (
-        <div className='flex flex-col items-end z-50 absolute bottom-0 right-0 p-16'>
+        <div className='flex flex-col items-end z-50 absolute bottom-2 right-2 p-4'>
             <p>
                 SourceCode at{' '}
                 <a

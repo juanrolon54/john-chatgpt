@@ -25,8 +25,9 @@ function App() {
   }
 
   useEffect(() => {
-    if (response !== '') addBubble(response, 'it', isError)
+    if (isError || response !== '') addBubble(response, 'it', isError)
   }, [response])
+
   useEffect(() => {
     scrollRef.current?.scrollIntoView()
   }, [chat])
@@ -44,16 +45,18 @@ function App() {
     setInput('')
   }
   return (
-    <div className="border border-white flex flex-col md:h-full w-full h-[80vh] ">
-      <div className="flex-1 overflow-y-scroll flex flex-col p-2 gap-2" ref={autoAnimateRef}>
-        {chat.map(({ content, from, id, time }) =>
-          <div key={id} className={`p-2 border flex flex-col border-white max-w-[80%] w-fit ${from === 'it' ? 'self-start bg-white text-black' : 'self-end'}`}>{content}<br /><small>{time.toLocaleTimeString()}</small></div>)
+    <div className="border border-white flex flex-col lg:h-full w-full h-[80vh] ">
+      <div className="flex-1 overflow-y-scroll flex flex-col p-2" ref={autoAnimateRef}>
+        {chat.map(({ content, from, id, time, error }) =>
+          <div className="flex flex-col hover:bg-slate-600 p-2">
+            <div key={id} className={`p-2 border flex flex-col border-white max-w-[80%] w-fit ${from === 'it' ? 'self-start bg-white text-black' : 'self-end'} ${error ? 'bg-red-500 text-black' : ''}`}>{error ? 'ERROR' : content}<br /><small>{time.toLocaleTimeString()}</small></div>
+          </div>)
         }
         {isLoading && <div>...</div>}
         <div ref={scrollRef} /></div>
       <div>
         <form onSubmit={handleSubmit} >
-          <input onChange={handleChange} placeholder="would you like to talk?" className="w-full px-2 outline-none" value={input} />
+          <input onChange={handleChange} placeholder="> ask anything" className="w-full px-2 outline-none" value={input} />
         </form>
       </div>
     </div>

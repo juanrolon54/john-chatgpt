@@ -26,14 +26,14 @@ function App() {
         setInput('')
     }
     return (
-        <div className="border border-white md:flex h-full w-full">
-            <div ref={autoAnimateRef} className="overflow-clip justify-right aspect-square grid place-items-center">
-                {isLoading && <div className="animate-pulse">...</div>}
+        <div className="border border-white lg:flex h-full w-full">
+            <div ref={autoAnimateRef} className="justify-right aspect-square grid place-items-center bg-slate-800">
+                {isLoading && <div className="animate-pulse">loading...</div>}
                 {isError && <div className=" bg-red-500  text-4xl font-black">Error</div>}
                 {!isError && !isLoading && <img src={response} loading="lazy" />}
             </div>
             <div className="flex-1 flex flex-col">
-                <div className="flex-1 md:overflow-y-scroll" ref={autoAnimateRef2}>
+                <div className="flex-1 lg:overflow-y-scroll" ref={autoAnimateRef2}>
                     {chat.map((item) => <div key={item} onClick={() => {
                         setPrompt(item)
                         setId(String(new Date().getMilliseconds()))
@@ -50,7 +50,7 @@ function App() {
                     </div>)}
                 </div>
                 <form onSubmit={handleSubmit} >
-                    <input onChange={handleChange} placeholder="would you like to see something?" className="w-full px-2 outline-none" value={input} />
+                    <input onChange={handleChange} placeholder="> request anything" className="w-full px-2 outline-none" value={input} />
                 </form>
             </div>
         </div>
